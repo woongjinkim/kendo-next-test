@@ -1,3 +1,8 @@
 export default function Board() {
-  return <div>Board</div>;
+  return (
+    <div>
+      <h1>testestest</h1>
+      Board
+    </div>
+  );
 }
