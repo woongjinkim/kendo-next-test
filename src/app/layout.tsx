@@ -1,4 +1,5 @@
-import "./globals.css";
+import MainLayout from "@/components/MainLayout";
+import "@progress/kendo-theme-default/dist/all.css";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -15,7 +16,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <MainLayout>{children}</MainLayout>
+      </body>
     </html>
   );
 }
