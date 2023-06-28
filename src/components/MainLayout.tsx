@@ -9,6 +9,8 @@ import {
 import { Badge, BadgeContainer } from "@progress/kendo-react-indicators";
 import useMenu from "@/app/presets/menu";
 import { useRouter } from "next/navigation";
+import Sider from "./Sider";
+import { useState } from "react";
 
 interface LayoutProp {
   children: React.ReactNode;
@@ -18,13 +20,17 @@ let kendokaAvatar =
   "https://www.telerik.com/kendo-react-ui-develop/components/images/kendoka-react.png";
 
 export default function MainLayout({ children }: LayoutProp) {
+  const [expanded, setExpanded] = useState<boolean>(true);
   const router = useRouter();
   const menu = useMenu();
   return (
     <>
       <AppBar>
         <AppBarSection>
-          <button className="k-button k-button-md k-rounded-md k-button-flat k-button-flat-base">
+          <button
+            className="k-button k-button-md k-rounded-md k-button-flat k-button-flat-base"
+            onClick={() => setExpanded(!expanded)}
+          >
             <span className="k-icon k-i-menu" />
           </button>
         </AppBarSection>
@@ -55,12 +61,7 @@ export default function MainLayout({ children }: LayoutProp) {
           <button className="k-button k-button-md k-rounded-md k-button-flat k-button-flat-base">
             <BadgeContainer>
               <span className="k-icon k-i-bell" />
-              <Badge
-                shape="dot"
-                themeColor="info"
-                size="small"
-                position="inside"
-              />
+              <Badge themeColor="info" size="small" position="inside" />
             </BadgeContainer>
           </button>
         </AppBarSection>
@@ -75,6 +76,7 @@ export default function MainLayout({ children }: LayoutProp) {
           </Avatar>
         </AppBarSection>
       </AppBar>
+      <Sider expanded={expanded}>{children}</Sider>
       <style>{`
           body {
               background: #fffefe;
@@ -106,7 +108,6 @@ export default function MainLayout({ children }: LayoutProp) {
               margin-right: 8px;
           }
       `}</style>
-      <div>{children}</div>
     </>
   );
 }
