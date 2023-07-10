@@ -1,5 +1,8 @@
 import MainLayout from "@/components/MainLayout";
-import "@progress/kendo-theme-default/dist/all.css";
+// import "@progress/kendo-theme-fluent";
+// import "@progress/kendo-theme-default/dist/all.css";
+import "@progress/kendo-theme-bootstrap/dist/all.scss";
+import "bootstrap/scss/bootstrap.scss";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,6 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <MainLayout>{children}</MainLayout>
       </body>
+      <style>{`body { font-family: "Segoe UI", sans-serif; } :root { --kendo-font-size: 18px; } `}</style>
     </html>
   );
 }
