@@ -1,11 +1,15 @@
 const menu = [
   {
-    label: "대시보드",
-    url: "/dashboard",
+    label: "Form 테스트",
+    url: "/form",
   },
   {
-    label: "공지사항",
-    url: "/board",
+    label: "Button 테스트",
+    url: "/button",
+  },
+  {
+    label: "Popup 테스트",
+    url: "/popup",
   },
 ];
 

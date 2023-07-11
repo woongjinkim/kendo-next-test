@@ -11,6 +11,7 @@ import useMenu from "@/app/presets/menu";
 import { useRouter } from "next/navigation";
 import Sider from "./Sider";
 import { useState } from "react";
+import styles from "./styles.module.css";
 
 interface LayoutProp {
   children: React.ReactNode;
@@ -25,10 +26,10 @@ export default function MainLayout({ children }: LayoutProp) {
   const menu = useMenu();
   return (
     <>
-      <AppBar>
+      <AppBar className={styles.body} themeColor={"inherit"}>
         <AppBarSection>
           <button
-            className="k-button k-button-md k-rounded-md k-button-flat k-button-flat-base"
+            className={styles.button}
             onClick={() => setExpanded(!expanded)}
           >
             <span className="k-icon k-i-menu" />
@@ -38,16 +39,20 @@ export default function MainLayout({ children }: LayoutProp) {
         <AppBarSpacer style={{ width: 4 }} />
 
         <AppBarSection>
-          <h1 className="title">TestProject</h1>
+          <h1 className={styles.title}>TestProject</h1>
         </AppBarSection>
 
         <AppBarSpacer style={{ width: 32 }} />
 
         <AppBarSection>
-          <ul>
-            {menu.map((item) => {
+          <ul className={styles.menu}>
+            {menu.map((item, index) => {
               return (
-                <li onClick={() => router.push(item.url)}>
+                <li
+                  className={styles.list}
+                  key={index}
+                  onClick={() => router.push(item.url)}
+                >
                   <span>{item.label}</span>
                 </li>
               );
@@ -58,7 +63,7 @@ export default function MainLayout({ children }: LayoutProp) {
         <AppBarSpacer />
 
         <AppBarSection className="actions">
-          <button className="k-button k-button-md k-rounded-md k-button-flat k-button-flat-base">
+          <button className={styles.button}>
             <BadgeContainer>
               <span className="k-icon k-i-bell" />
               <Badge themeColor="info" size="small" position="inside" />
@@ -77,37 +82,6 @@ export default function MainLayout({ children }: LayoutProp) {
         </AppBarSection>
       </AppBar>
       <Sider expanded={expanded}>{children}</Sider>
-      <style>{`
-          body {
-              background: #fffefe;
-              margin: 0;
-              padding: 0;
-          }
-          .title {
-              font-size: 18px;
-              margin: 0;
-          }
-          ul {
-              font-size: 14px;
-              list-style-type: none;
-              padding: 0;
-              margin: 0;
-              display: flex;
-          }
-          li {
-              margin: 0 10px;
-          }
-          li:hover {
-              cursor: pointer;
-              color: #84cef1;
-          }
-          .k-button k-button-md k-rounded-md k-button-solid k-button-solid-base {
-              padding: 0;
-          }
-          .k-badge-container {
-              margin-right: 8px;
-          }
-      `}</style>
     </>
   );
 }

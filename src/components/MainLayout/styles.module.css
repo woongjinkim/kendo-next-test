@@ -1,0 +1,30 @@
+.body {
+  background: #fffefe;
+  margin: 0;
+  padding: 0;
+}
+
+.title {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.list {
+  margin: 0 10px;
+}
+
+.list:hover {
+  cursor: pointer;
+  color: #84cef1;
+}
+
+.button {
+  padding: 0;
+}

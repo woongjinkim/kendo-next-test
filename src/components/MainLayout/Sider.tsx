@@ -43,13 +43,6 @@ export default function Sider({ expanded, children }: SiderProp) {
           <DrawerContent>{children}</DrawerContent>
         </Drawer>
       </div>
-      <style>{`
-        .k-drawer-container {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-        }
-    `}</style>
     </>
   );
 }
