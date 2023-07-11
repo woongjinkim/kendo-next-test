@@ -110,12 +110,48 @@ export default function FormComponent() {
     <Form
       onSubmit={handleSubmit}
       render={(formRenderProps: FormRenderProps) => (
-        <FormElement style={{ maxWidth: 650 }} horizontal={true}>
+        <FormElement style={{ maxWidth: 650 }}>
           <fieldset className={"k-form-fieldset"}>
-            <FieldWrapper>
-              <Label>Label</Label>
-              <Input />
-            </FieldWrapper>
+            {formColumn.map((item, index) => {
+              switch (item.component) {
+                case "input":
+                  return (
+                    <div key={index}>
+                      <Field
+                        id={index}
+                        name={item.name}
+                        label={item.label}
+                        component={formInput}
+                      />
+                    </div>
+                  );
+                case "emailInput":
+                  return (
+                    <div key={index}>
+                      <Field
+                        name={item.name}
+                        type={item.type}
+                        component={EmailInput}
+                        label={item.label}
+                        validator={emailValidator}
+                      />
+                    </div>
+                  );
+                // case "select":
+                //   return (
+                //     <div key={index}>
+                //       <Field
+                //         name={item.name}
+                //         type={item.type}
+                //         component={"select"}
+                //         label={item.label}
+                //       />
+                //     </div>
+                //   );
+                default:
+                  return;
+              }
+            })}
           </fieldset>
           <div className="k-form-buttons">
             <button type={"submit"} disabled={!formRenderProps.allowSubmit}>
@@ -134,46 +170,10 @@ export default function FormComponent() {
 //     render={(formRenderProps: FormRenderProps) => (
 //       <FormElement style={{ maxWidth: 650 }} horizontal={true}>
 //         <fieldset className={"k-form-fieldset"}>
-//           {formColumn.map((item, index) => {
-//             switch (item.component) {
-//               case "input":
-//                 return (
-//                   <div key={index}>
-//                     <Field
-//                       id={"fullName"}
-//                       name={"fullName"}
-//                       label={"Full Name"}
-//                       component={formInput}
-//                     />
-//                   </div>
-//                 );
-//               case "emailInput":
-//                 return (
-//                   <div key={index}>
-//                     <Field
-//                       name={item.name}
-//                       type={item.type}
-//                       component={EmailInput}
-//                       label={item.label}
-//                       validator={emailValidator}
-//                     />
-//                   </div>
-//                 );
-//               case "select":
-//                 return (
-//                   <div key={index}>
-//                     <Field
-//                       name={item.name}
-//                       type={item.type}
-//                       component={"select"}
-//                       label={item.label}
-//                     />
-//                   </div>
-//                 );
-//               default:
-//                 return;
-//             }
-//           })}
+//           <FieldWrapper>
+//             <Label>Label</Label>
+//             <Input />
+//           </FieldWrapper>
 //         </fieldset>
 //         <div className="k-form-buttons">
 //           <button type={"submit"} disabled={!formRenderProps.allowSubmit}>

@@ -4,6 +4,7 @@ const Button = dynamic(() => import("@/components/Button"), { ssr: false });
 export default function ButtonTest() {
   return (
     <div>
+      <h1>Button Page</h1>
       <div
         style={{
           display: "flex",

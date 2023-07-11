@@ -246,9 +246,9 @@
     "@progress/kendo-react-popup" "5.14.1"
     prop-types "^15.6.0"
 
-"@progress/kendo-react-dialogs@5.14.1":
+"@progress/kendo-react-dialogs@5.14.1", "@progress/kendo-react-dialogs@^5.14.1":
   version "5.14.1"
-  resolved "https://registry.npmjs.org/@progress/kendo-react-dialogs/-/kendo-react-dialogs-5.14.1.tgz"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-dialogs/-/kendo-react-dialogs-5.14.1.tgz#dd3d686cbcd1e340488106a451c494ff62dd1a04"
   integrity sha512-qkEruwfQdF84IfnxmHSxCq5QEwriO8aDkaOKNyI9GbQkx/GRJPwI2No0YgWNc1awWR9vhp/Gob74XmqdOos5QA==
   dependencies:
     "@progress/kendo-react-common" "5.14.1"
@@ -332,6 +332,15 @@
 "@progress/kendo-react-popup@5.14.1":
   version "5.14.1"
   resolved "https://registry.npmjs.org/@progress/kendo-react-popup/-/kendo-react-popup-5.14.1.tgz"
+  integrity sha512-JlinlXNWMwTmAhApWltXjQfb0mXcWsOCXUGISFeKFMS1n9vx9m88Xof1Wgthgu4k1LD/swhqqdNDSSSQ4TXbjA==
+  dependencies:
+    "@progress/kendo-popup-common" "1.9.0"
+    "@progress/kendo-react-common" "5.14.1"
+    prop-types "^15.6.0"
+
+"@progress/kendo-react-popup@^5.14.1":
+  version "5.14.1"
+  resolved "https://registry.yarnpkg.com/@progress/kendo-react-popup/-/kendo-react-popup-5.14.1.tgz#c8c570dc36644fd78105ed6766362c376f05a0f7"
   integrity sha512-JlinlXNWMwTmAhApWltXjQfb0mXcWsOCXUGISFeKFMS1n9vx9m88Xof1Wgthgu4k1LD/swhqqdNDSSSQ4TXbjA==
   dependencies:
     "@progress/kendo-popup-common" "1.9.0"
